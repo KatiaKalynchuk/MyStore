@@ -2,7 +2,8 @@ import R from 'ramda'
 
 import {
     FETCH_PHONES_SUCCESS,
-    LOAD_MORE_PHONES_SUCCESS
+    LOAD_MORE_PHONES_SUCCESS,
+    FETCH_PHONE_BY_ID_SUCCESS
 } from "../constants/actionTypes";
 
 const initial_state = {};
@@ -15,6 +16,8 @@ export default (state = initial_state, {type, payload}) => {
         case LOAD_MORE_PHONES_SUCCESS:
             const moreValues = R.indexBy(R.prop('id'), payload);
             return R.merge(state, moreValues);
+        case FETCH_PHONE_BY_ID_SUCCESS:
+            return R.assoc(payload.id, payload, state);
         default:
             return state
     }
