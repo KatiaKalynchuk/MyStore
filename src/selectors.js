@@ -3,7 +3,16 @@ import R from 'ramda'
 export const getPhonesById = (state, id) => R.prop(id, state.phones);
 
 export const getPhones = state => {
-    const phones = R.map(id => getPhonesById(state, id), state.phonesPage.ids);
+    const applySearch = item => R.contains(
+        state.phonesPage.search,
+        R.prop('name', item)
+    );
+
+    const phones = R.compose(
+        R.filter(applySearch),
+        R.map(id => getPhonesById(state, id))
+    )(state.phonesPage.ids);
+
     return phones
 };
 
