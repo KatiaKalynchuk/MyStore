@@ -5,11 +5,11 @@ import {
     LOAD_MORE_PHONES_SUCCESS
 } from "../constants/actionTypes";
 
-const initial_state = {
+const initialState = {
     ids: []
 };
 
-export default (state = initial_state, {type, payload}) => {
+export default (state = initialState, {type, payload}) => {
     switch (type) {
         case FETCH_PHONES_SUCCESS:
             return R.merge(state, {

@@ -6,9 +6,9 @@ import {
     FETCH_PHONE_BY_ID_SUCCESS
 } from "../constants/actionTypes";
 
-const initial_state = {};
+const initialState = {};
 
-export default (state = initial_state, {type, payload}) => {
+export default (state = initialState, {type, payload}) => {
     switch (type) {
         case FETCH_PHONES_SUCCESS:
             const newValues = R.indexBy(R.prop('id'), payload);
