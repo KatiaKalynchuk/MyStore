@@ -11,9 +11,9 @@ import {Provider} from 'react-redux'
 import {Router, Route} from 'react-router'
 
 import reducers from './reducers'
-import Layout from './containers/layout/index'
-import Phones from './containers/phones/index'
-import Phone from './containers/phone/index'
+import Layout from './containers/layout'
+import Phones from './containers/phones'
+import Phone from './containers/phone'
 
 const store = createStore(reducers, composeWithDevTools(
     applyMiddleware(thunk)
