@@ -2,6 +2,8 @@ import R from 'ramda'
 
 export const getPhoneById = (state, id) => R.prop(id, state.phones);
 
+export const getActiveCategoryId = ownProps => R.path(['params', 'id'], ownProps);
+
 export const getPhones = (state, ownProps) => {
     const activeCategoryId = getActiveCategoryId(ownProps);
     const applySearch = item => R.contains(
@@ -38,8 +40,6 @@ export const getTotalBasketPrice = state => {
 };
 
 export const getCategories = state => R.values(state.categories);
-
-export const getActiveCategoryId = ownProps => R.path(['params', 'id'], ownProps);
 
 export const getBasketPhonesWithCount = state => {
     const uniqueIds = R.uniq(state.basket);
